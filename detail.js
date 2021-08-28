@@ -1,11 +1,15 @@
 
-var container = document.getElementById('detail-container');
+let container = document.getElementById('detail-container');
 
+//  Fetch searched data from session-storage
 const storedData = JSON.parse(window.sessionStorage.getItem('hero'));
 
+// get the data stored on id from  search query-string
 const superHeroId = window.location.search.split('=')[1];
+
 let data = [];
 
+// get the SuperHero data which User selected
 for(let i = 0; i < storedData.length; ++i) {
   if(storedData[i].id === superHeroId) {
     data = storedData[i];
@@ -13,8 +17,7 @@ for(let i = 0; i < storedData.length; ++i) {
   }
 }
 
-console.log(data);
-
+// Display the Data of the selected SuperHero
 const displayContent = () => {
   container.innerHTML = '';
   const content = `
