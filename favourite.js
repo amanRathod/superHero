@@ -3,7 +3,7 @@ let app = document.getElementById('app');
 // remove favourite SuperHero
 const removeItem = (id) => {
 
-  let SuperHeroData = sessionStorage.getItem('favourite') ? JSON.parse(sessionStorage.getItem('favourite')) : [];
+  let SuperHeroData = localStorage.getItem('favourite') ? JSON.parse(localStorage.getItem('favourite')) : [];
  
   for (let i = 0; i < SuperHeroData.length; i++) {
 
@@ -15,7 +15,7 @@ const removeItem = (id) => {
     }
 
   // again store the updated data excluding the selected SuperHero
-  sessionStorage.setItem('favourite', JSON.stringify(SuperHeroData));
+  localStorage.setItem('favourite', JSON.stringify(SuperHeroData));
   
   // display Updated SuperHero Data
   FavouriteHero();
@@ -23,8 +23,8 @@ const removeItem = (id) => {
 
 const FavouriteHero = () => {
   app.innerHTML='';
-  // fetch data from favourite-list on sessionStorage
-  let FavouriteSuperHero = JSON.parse(sessionStorage.getItem('favourite'));
+  // fetch data from favourite-list on localStorage
+  let FavouriteSuperHero = JSON.parse(localStorage.getItem('favourite'));
 
   // array to ensure that the data is not repeated
   let vector = [];

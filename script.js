@@ -4,10 +4,10 @@ var container = document.getElementById('container');
 
 const AddToFavourite = (id) => {
 
-  let current = sessionStorage.getItem('id');
+  let current = localStorage.getItem('id');
   current = current ? current.split(',') : [];
   
-  // Added Id and data of the favourite SuperHero on sessionStorage
+  // Added Id and data of the favourite SuperHero on localStorage
   // Added Id to ensure that no duplicate data is stored
   
     
@@ -26,13 +26,13 @@ const AddToFavourite = (id) => {
       }
     }
 
-    let Favdatas = JSON.parse(sessionStorage.getItem('favourite') || "[]");
+    let Favdatas = JSON.parse(localStorage.getItem('favourite') || "[]");
     // add Favourite SuperHero data into favourite-list
     Favdatas.push((data))
-    sessionStorage.setItem('favourite', JSON.stringify(Favdatas)); 
+    localStorage.setItem('favourite', JSON.stringify(Favdatas)); 
 
   // add Favourite SUperhero Id
-  sessionStorage.setItem('id', current.toString());
+  localStorage.setItem('id', current.toString());
     
 }
 
